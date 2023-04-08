@@ -1,0 +1,89 @@
+header{
+    background-image: linear-gradient(#0f1110, #494d50); 
+    position:fixed;
+    top:0px;
+    left:0px;
+    height: 3em;
+    width: 100%;
+    display: flex;
+    box-shadow: 10px 5px 5px #0f1110;
+}
+
+div.pageTitle {
+    font-family: "Doulos-SIL";
+    font-size: 30px;
+    padding: 0px;
+    color: #afb2b6;
+    text-shadow: 10px 5px 5px #0f1110;
+}
+p.titleParagraph {
+    padding: 0px;
+    line-height: 0px;
+}
+
+div.logo{
+    top:0px;
+    left:0px;
+    height: 7em;
+    width: 7em;
+    background-color: #ab752d;
+    background-image: linear-gradient(#ab752d, #e4aa00);
+    box-shadow: 10px 5px 5px #0f1110;
+}
+
+nav.topToolbar{
+    position:absolute;
+    display:flex;
+    align-items: center;
+    text-align: center;
+    flex-direction:row;
+    align-items:left;
+    left: 35%;
+    width: 100%;
+    height: 3em;
+}
+
+
+button.GT4button{
+    background-color: #b5b5bc;
+    background-image: linear-gradient(#b5b5bc, #94949c);
+    border-radius: 50px ;
+    border-style: none ;
+    text-align: center;
+    padding: 5px;
+    font-family: "Helvetica-Neue-LT-Medium-Extended", sans-serif;
+    float:left;
+}
+button.GT4button:hover{
+    background-color: #92671e;
+    background-image: linear-gradient(#b18b4d, #92671e);
+}
+
+
+label.GT4label{
+    color: #afb2b6;
+    font-family: "Helvetica-Rounded-LT-Bold";
+    text-shadow: 2px 2px 2px #0f1110;
+}
+label.GT4label:hover{
+    color: #92671e;
+}
+
+nav.navRight{
+    left: 0%;
+}
+nav.navLeft{
+    left: 0%;
+}
+
+select.GT4select {
+    background-color: #e0dfe7;
+    background-image: linear-gradient(#e0dfe7, #abaab2);
+    font-family: "Helvetica-Neue-LT-Medium-Extended", sans-serif;
+}
+
+input[type=number].GT4inNumber {
+    background-color: #a9a8b0;
+    background-image:linear-gradient(#87868c, #aaa9b1);
+    font-family: "Helvetica-Neue-LT-Medium-Extended", sans-serif;
+}
