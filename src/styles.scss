@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face{
+    font-family: Helvetica-Neue-LT-Medium;
+    src: url('assets/fonts/helvetica-neue-lt-std/Helvetica Neue LT Std 65 Medium.otf') format("opentype")
+}
+@font-face {
+    font-family: Helvetica-Neue-LT-Medium-Extended;
+    src: url('assets/fonts/helvetica-neue-lt-std/Helvetica Neue LT Std 63 Medium Extended.otf') format("opentype");
+}
+@font-face {
+    font-family: Helvetica-Rounded-LT-Bold;
+    src: url('assets/fonts/helvetica-rounded-lt-std/Helvetica Rounded LT Std Bold.otf') format("opentype");
+}
+@font-face {
+    font-family: Doulos-SIL;
+    src: url('assets/fonts/Doulos-SIL/DoulosSILR.ttf') format("truetype");
+}
