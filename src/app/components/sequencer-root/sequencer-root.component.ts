@@ -11,8 +11,9 @@ import { tilemapService } from 'src/graphics/tilemap/tilemap.service';
 })
 export class SequencerRootComponent  implements OnInit{
   private app: PIXI.Application = new PIXI.Application({
+    backgroundColor: 0x424041,
     width: window.innerWidth,
-    height: window.innerHeight
+    height: window.innerHeight,
   });
 
   tilemap: tilemapService = new tilemapService();
@@ -26,7 +27,15 @@ export class SequencerRootComponent  implements OnInit{
   ngOnInit(): void {
     this.elementRef.nativeElement.appendChild(this.app.view);
     this.tilemap.drawGrid(this.graphics, this.app);
-
   }
+
+  // app.stage.on("poinermove", getMouse)
+
+
+
+
+
+
+
 
 }
