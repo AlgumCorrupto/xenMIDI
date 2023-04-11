@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
-import * as PIXI from 'pixi.js'
+import * as PIXI from 'pixi.js';
+import { MouseCoords } from "src/utils/interfaces/Mouse";
 
 // the tilemap coordinate system
 interface iNoteGrid {
@@ -37,16 +38,16 @@ export class tilemapService{
     }
 
     //function that draws highlight when you hover your mouse on a cell
-    public drawHighlight(graphics: PIXI.Graphics, app: PIXI.Application, e: MouseEvent) {
+    public drawHighlight(graphics: PIXI.Graphics, app: PIXI.Application, mCoords: MouseCoords):void {
         const xMax = this.selectedEDO.xDeltaTime * this.tileRect.xWidth;
         const yMax = this.selectedEDO.yNotePitch * this.tileRect.yHeight;
         graphics.lineStyle(1, 0xd7891c);
 
         //get mouse coordinates
-        app.stage.interactive = true
-        let mouseX: number = e.clientX;
-        let mouseY: number = e.clientX;
+        let mouseX: number = mCoords.x;
+        let mouseY: number = mCoords.y;
 
+        
         let gridX: number = this.selectedEDO.xDeltaTime;
         let gridY: number = this.selectedEDO.yNotePitch;
         /*find active cell
