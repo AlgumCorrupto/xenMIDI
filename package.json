@@ -18,6 +18,7 @@
     "@angular/platform-browser": "^15.2.0",
     "@angular/platform-browser-dynamic": "^15.2.0",
     "@angular/router": "^15.2.0",
+    "@pixi/interaction": "^6.5.9",
     "@pixi/tilemap": "^4.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

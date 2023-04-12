@@ -1,5 +1,5 @@
-import { Injectable } from "@angular/core";
-import * as PIXI from 'pixi.js'
+import * as PIXI from "pixi.js"
+import { mouseCoords } from "src/utils/interfaces/mouse";
 
 // the tilemap coordinate system
 interface iNoteGrid {
@@ -14,9 +14,6 @@ interface iTileRect {
     yHeight: number;
 }
 
-@Injectable({
-    providedIn: 'root'  
-})
 export class tilemapService{
     selectedEDO: iNoteGrid = { xDeltaTime: 128, yNotePitch: 128,idTemperament: 12 };
     tileRect: iTileRect = { xWidth: 24, yHeight: 16 };
@@ -37,16 +34,16 @@ export class tilemapService{
     }
 
     //function that draws highlight when you hover your mouse on a cell
-    public drawHighlight(graphics: PIXI.Graphics, app: PIXI.Application, e: MouseEvent) {
+    public drawHighlight(graphics: PIXI.Graphics, app: PIXI.Application, mCoords: mouseCoords):void {
         const xMax = this.selectedEDO.xDeltaTime * this.tileRect.xWidth;
         const yMax = this.selectedEDO.yNotePitch * this.tileRect.yHeight;
         graphics.lineStyle(1, 0xd7891c);
 
         //get mouse coordinates
-        app.stage.interactive = true
-        let mouseX: number = e.clientX;
-        let mouseY: number = e.clientX;
+        let mouseX: number = mCoords.x;
+        let mouseY: number = mCoords.y;
 
+        
         let gridX: number = this.selectedEDO.xDeltaTime;
         let gridY: number = this.selectedEDO.yNotePitch;
         /*find active cell
@@ -62,5 +59,4 @@ export class tilemapService{
         graphics.drawRect(gridX, gridY, this.tileRect.xWidth, this.tileRect.yHeight);
         app.stage.addChild(graphics);
     }
-
 }
