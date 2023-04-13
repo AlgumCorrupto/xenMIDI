@@ -14,7 +14,7 @@ interface iTileRect {
     yHeight: number;
 }
 
-export class tilemapService{
+export class TilemapService{
     selectedEDO: iNoteGrid = { xDeltaTime: 128, yNotePitch: 128,idTemperament: 12 };
     tileRect: iTileRect = { xWidth: 24, yHeight: 16 };
     public graphics = new PIXI.Graphics();
@@ -34,7 +34,7 @@ export class tilemapService{
     }
 
     //function that draws highlight when you hover your mouse on a cell
-    public drawHighlight(graphics: PIXI.Graphics, app: PIXI.Application, mCoords: mouseCoords):void {
+    public drawHighlight(graphics: PIXI.Graphics, mCoords: mouseCoords):void {
         const xMax = this.selectedEDO.xDeltaTime * this.tileRect.xWidth;
         const yMax = this.selectedEDO.yNotePitch * this.tileRect.yHeight;
         graphics.lineStyle(1, 0xd7891c);
@@ -57,6 +57,5 @@ export class tilemapService{
 
         //draw the highlight
         graphics.drawRect(gridX, gridY, this.tileRect.xWidth, this.tileRect.yHeight);
-        app.stage.addChild(graphics);
     }
 }
