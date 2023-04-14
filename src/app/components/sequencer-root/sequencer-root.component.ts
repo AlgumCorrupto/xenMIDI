@@ -1,57 +1,3 @@
-/*
-import { Component, OnInit, ElementRef } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
-import * as PIXI from 'pixi.js';
-import { InteractionEvent } from '@pixi/interaction'
-import { MouseCoords } from 'src/utils/interfaces/Mouse';
-import { tilemapService } from 'src/graphics/tilemap/tilemap.service';
-import * as core from '@pixi/core'
-
-@Component({
-  selector: 'app-sequencer-root',
-  templateUrl: './sequencer-root.component.html',
-  styleUrls: ['./sequencer-root.component.scss'],
-  providers: [tilemapService]
-})
-export class SequencerRootComponent  implements OnInit{
-  private app: PIXI.Application = new PIXI.Application({
-    backgroundColor: 0x424041,
-    width: window.innerWidth,
-    height: window.innerHeight,
-  });
-
-  tilemap: tilemapService = new tilemapService();
-
-  constructor(private elementRef: ElementRef, private service: tilemapService, private document: Document) {
-
-  }
-
-  graphics: PIXI.Graphics = new PIXI.Graphics();
-
-  ngOnInit(): void {
-    this.elementRef.nativeElement.appendChild(this.app.view);
-    //nthis.document.addEventListener('mousemove', this.onMouseMove)
-    this.tilemap.drawGrid(this.graphics, this.app);
-    this.app.stage.on('pointermove', this.onMouseMove(PIXI.EventSystem));
-  };
- 
-  private MouseMov: MouseCoords = {x: 0, y: 0};
-
-  private onMouseMove(e: InteractionEvent) {
-    let pos: any = e.data;
-    this.MouseMov.x = pos.x;
-    this.MouseMov.y = pos.y;
-
-    this.tilemap.drawHighlight(this.graphics, this.app, this.MouseMov)
-
-  }
-
-
-
-
-}
-*/
-
 import { Component, OnInit, ElementRef, AfterViewInit } from '@angular/core';
 import * as PIXI from 'pixi.js';
 import { mouseCoords } from "src/utils/interfaces/mouse";
@@ -63,10 +9,11 @@ import { tilemapService } from 'src/graphics/tilemap/tilemap.service';
   styleUrls: ['./sequencer-root.component.scss'],
 })
 export class SequencerRootComponent  implements OnInit, AfterViewInit{
+  public screenWidthHeight: number [] = [24 * 128 , 16 * 128]
   private app: PIXI.Application = new PIXI.Application({
     backgroundColor: 0x424041,
-    width: window.innerWidth,
-    height: window.innerHeight,
+    width: this.screenWidthHeight[0],
+    height: this.screenWidthHeight[1],
   });
 
   tilemap: tilemapService = new tilemapService();
@@ -74,6 +21,8 @@ export class SequencerRootComponent  implements OnInit, AfterViewInit{
   constructor(private elementRef: ElementRef) {
 
   }
+
+
 
   graphics: PIXI.Graphics = new PIXI.Graphics();
 
@@ -86,20 +35,7 @@ export class SequencerRootComponent  implements OnInit, AfterViewInit{
   };
 
   ngAfterViewInit(): void {
-    this.app.stage.on("pointermove", (e: PIXI.FederatedPointerEvent) => {
-      this.MouseMov.x = e.clientX;
-      this.MouseMov.y = e.clientY;
-    })
+    this.app.stage.on("pointermove", (event) => { this.tilemap.drawHighlight(event, this.app) })
   }
- 
-  private MouseMov: mouseCoords = {x: 0, y: 0};
-  /*
-  private onMouseMove(e: PIXI.FederatedPointerEvent) {
-    this.MouseMov.x = e.clientX;
-    this.MouseMov.y = e.clientY;
-
-    this.tilemap.drawHighlight(this.graphics, this.app, this.MouseMov);
-  }
-  */
 
 }
